@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
 import './App.css';
-import Login from './Login';
-import Register from './Register';
+import Login from './components/Login';
+import Register from './components/Register';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Farmerhome from './components/Farmerhome';
 
-function App() {
-  return (
-    <Router>
-    <div className="App">
+
+
+  function App() {
+    return (
+      <Router>
+      <div className="App">
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav ml-auto">
@@ -28,13 +31,15 @@ function App() {
           <Switch>
             <Route path="/Login" component={Login} />
             <Route path="/Register" component={Register} />
+            <Route path="/Farmerhome" component={Farmerhome} />
           </Switch>
+          </div>
         </div>
       </div>
-    </div>
     </Router>
   );
 }
+
 export default App;
 
     
