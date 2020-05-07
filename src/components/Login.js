@@ -31,7 +31,6 @@ class Login extends Component {
             <div className='loginpage'>
             <form>
             <h3>Farmer App</h3>
-
             <div className="form-group">
                 <label>Mobile number</label>
                 <input type="number" className="form-control" placeholder="Enter number" onChange={this.props.handleChangeNum} />

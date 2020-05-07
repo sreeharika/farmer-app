@@ -5,6 +5,8 @@ import Register from './components/Register';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Farmerhome from './components/Farmerhome';
+import Home from './components/Home';
+import Addproduct from './components/Addproduct';
 
 
 
@@ -12,30 +14,12 @@ import Farmerhome from './components/Farmerhome';
     return (
       <Router>
       <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to={"/Login"}>Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to={"/Register"}>Register</Link>
-              </li>
-            </ul>
-          </div>
-      
-      </nav>
-
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route path="/Login" component={Login} />
-            <Route path="/Register" component={Register} />
-            <Route path="/Farmerhome" component={Farmerhome} />
-          </Switch>
-          </div>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Login" component={Login} />
+            <Route exact path="/Register" component={Register} />
+            <Route exact path="/Farmerhome" component={Farmerhome} />
+            <Route exact path="/Addproduct" component={Addproduct} />
         </div>
-      </div>
     </Router>
   );
 }
