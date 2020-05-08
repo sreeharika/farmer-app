@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class register extends React.Component {
+export default class register extends Component {
   constructor(props) {
     super(props);
 

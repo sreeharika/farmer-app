@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Addproduct from "./Addproduct";
+import { Card, Button } from 'react-bootstrap';
+import download from './images/download.jpeg';
+import toordal from './images/toordal.jpg';
+
 
 export default class Farmerhome extends Component {
     render() {
@@ -26,15 +29,46 @@ export default class Farmerhome extends Component {
     <NavDropdown title="Profile" id="collasible-nav-dropdown">
     <NavDropdown.Item href="#action/3.1">Myproducts</NavDropdown.Item>
     <NavDropdown.Item href="#action/3.2">Bidhistory</NavDropdown.Item>
-    <NavDropdown.Item href="#action/3.3">Logout</NavDropdown.Item>
+    <NavDropdown.Item href="/Login">Logout</NavDropdown.Item>
   </NavDropdown>
-      <Nav.Link eventKey={2} href="#memes">
-        Dank memes
-      </Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
-            </div>
+<ol>
+<li>
+<Card style={{ width: '80rem' }}>
+<Card.Body>
+  <Card.Title>Crop Title</Card.Title>
+  <Card.Img variant="right" className='card_img' src={download} />
+  <Button href="/Viewdetails"  variant="primary" className='btn'>View details</Button>
+  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
+</Card.Body>
+</Card>
+</li>
+<br />
+<li>
+<Card style={{ width: '80rem' }}>
+<Card.Body>
+  <Card.Title>Crop Title</Card.Title>
+  <Card.Img variant="right" src={download} />
+  <Button href="/Viewdetails" variant="primary" className='btn'>View details</Button>
+  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
+</Card.Body>
+</Card>
+</li>
+<br />
+<li>
+<Card style={{ width: '80rem' }}>
+<Card.Body>
+  <Card.Title>Crop Title</Card.Title>
+  <Card.Img variant="right"  src={toordal} />
+  <Button href="/Viewdetails" variant="primary" className='btn'>View details</Button>
+  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
+</Card.Body>
+</Card>
+</li>
+</ol>
+    </div>
         )
     }
 }

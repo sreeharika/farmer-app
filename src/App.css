@@ -40,3 +40,12 @@
 .loginpage {
   margin: 100px 500px;
 }
+
+.btn {
+  margin-right: 10px;
+}
+
+.card-img-right {
+  width: 20%;
+  object-fit: cover;
+}
