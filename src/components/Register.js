@@ -39,6 +39,12 @@ export default class register extends Component {
             name="fullname"
             value={this.state.fullname}
             onChange={this.handlechange}
+            style={{
+              // borderColor: "#0062CC",
+              borderRadius: "5px",
+              width: "400px",
+              border: "1px solid #CED4DA",
+            }}
           />{" "}
           <br />
           <label> Email </label>
@@ -60,16 +66,34 @@ export default class register extends Component {
           />{" "}
           <br />
           <br />
-          <label>
-            Pick type:
-            <select value={this.state.value} onChange={this.handleChange}>
+
+          <label>Pick type:
+            <select value={this.state.value} onChange={this.handleChange}
+            style={{
+              backgroundColor: "#007BFF",
+              borderRadius: "5px",
+              width: "135px",
+              height: "30px",
+              color: "white",
+              paddingLeft: "10px",
+              paddingRight: "25px",
+              border: "1px solid #CED4DA",
+            }}>
               <option value="farmer">farmer</option>
               <option value="bidder">bidder</option>
             </select>
           </label>
           <br />
           <br />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"
+          style={{
+            color: "white",
+            backgroundColor: "#007BFF",
+            borderRadius: "5px",
+            width: "510px",
+            height: "35px",
+            border: "1px solid #CED4DA",
+          }} />
         </form>
       </div>
     );
