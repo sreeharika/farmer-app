@@ -1,43 +1,54 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../actions";
+import axios from 'axios';
 
 class Login extends Component {
     state = {
         mobilenum: '',
         otp: '',
         isLogged: false,
-      }
-    handleChangeNum = (event) => {
+        email:'',
+        password:''
+      };
+          
+    handleChangeEmail = (event) => {
       this.setState({
-        mobilenum: event.target.value,
+        email: event.target.value,
       });
     };
-    handleChangeOtp = (event) => {
+    handleChangePassword = (event) => {
       this.setState({
-        otp: event.target.value,
+        password: event.target.value,
       });
     };
+    // handlePasswordChange = ({ event }) => {
+    //     this.setState({ password: event.target.value });
+    //   };
+    
     handleSubmit = () => {
-        this.setState({
-            isLogged: true,
-        })
+        const { dispatch } = this.props;
+        dispatch(loginUser(this.state.email, this.state.password));
     }
     render() {
-        if (this.state.isLogged === true){
+        const { classes, loginError, isAuthenticated } = this.props;
+        console.log("isAuthenticated: ",isAuthenticated)
+        if (isAuthenticated){
             return <Redirect to="/Farmerhome" />
         }
         return (
             <div className='loginpage'>
-            <form>
+            
             <h3>Farmer App</h3>
             <div className="form-group">
-                <label>Mobile number</label>
-                <input type="number" className="form-control" placeholder="Enter number" onChange={this.props.handleChangeNum} />
+                <label>Email</label>
+                <input type="text" className="form-control" placeholder="Enter email" onChange={this.handleChangeEmail} />
             </div>
 
             <div className="form-group">
-                <label>One Time Password</label>
-                <input type="OTP" className="form-control" placeholder="Enter OTP" onChange={this.props.handleChangeOtp} />
+                <label>Password</label>
+                <input type="text" className="form-control" placeholder="Enter Password" onChange={this.handleChangePassword} />
             </div>
 
             <div className="form-group">
@@ -54,9 +65,21 @@ class Login extends Component {
             <p className="New register text-left">
             Register<Link to={"/Register"}>Here</Link>
         </p>
-        </form>
+
         </div>
     );
 }
 }
-export default Login;
+
+function mapStateToProps(state) {
+    return {
+      isLoggingIn: state.auth.isLoggingIn,
+      loginError: state.auth.loginError,
+      isAuthenticated: state.auth.isAuthenticated
+    };
+  }
+  export default connect(mapStateToProps)(Login);
+  
+
+
+// export default Login;
