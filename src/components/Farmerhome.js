@@ -1,13 +1,49 @@
 import React, { Component } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import { Link } from 'react-router-dom';
+// import { Router, Route, Link } from 'react-router'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Card, Button } from 'react-bootstrap';
 import download from './images/download.jpeg';
 import toordal from './images/toordal.jpg';
-
+import store from "../configureStore";
 
 export default class Farmerhome extends Component {
+  renderProducts = ()=>{
+    let storecp = store.getState()
+    console.log(storecp.auth.products)
+    const listItems = storecp.auth.products.map((product) =>
+      {
+        let imgPath
+        if (!product.croptype) {
+          imgPath = `./tomato.png`
+        }else{
+          imgPath = `./${product.croptype.toString().replace(" ", "_").toLowerCase()}.png`
+        }
+        
+        return <div>
+          <li>
+          <Card style={{ width: '80rem' }}>
+          <Card.Body>
+            <Card.Title>{product.croptype}</Card.Title>
+            <Card.Img variant="right" className='card_img' src={imgPath} />
+            <Button variant="primary" className='btn'>
+              <Link style={{color:'white'}} to="/Viewdetails"> View details</Link>
+            </Button>
+            <Button variant="primary" className='card_btn'>
+              <Link style={{color:'white'}} to="/Yourbids"> Your bids</Link>
+            </Button>
+          </Card.Body>
+          </Card>
+          </li>
+          <br />
+        </div>
+        
+      }
+    );
+    return listItems
+  }
     render() {
         return (
             <div>
@@ -16,9 +52,9 @@ export default class Farmerhome extends Component {
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="#features">Home</Nav.Link>
+      <Nav.Link as={Link} to="#features">Home</Nav.Link>
       <Nav.Link href="#pricing">Bid History</Nav.Link>
-      <Nav.Link href="/Addproduct">Add Product</Nav.Link>
+      <Nav.Link as={Link} to="Addproduct">Add Product</Nav.Link>
       <NavDropdown title="Product categories" id="collasible-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Vegitables</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Fruits</NavDropdown.Item>
@@ -26,47 +62,13 @@ export default class Farmerhome extends Component {
       </NavDropdown>
     </Nav>
     <Nav>
-    <NavDropdown title="Profile" id="collasible-nav-dropdown">
-    <NavDropdown.Item href="#action/3.1">Myproducts</NavDropdown.Item>
-    <NavDropdown.Item href="#action/3.2">Bidhistory</NavDropdown.Item>
-    <NavDropdown.Item href="/Login">Logout</NavDropdown.Item>
-  </NavDropdown>
+    <Nav.Link href="/login">Logout</Nav.Link>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
 <ol>
-<li>
-<Card style={{ width: '80rem' }}>
-<Card.Body>
-  <Card.Title>Crop Title</Card.Title>
-  <Card.Img variant="right" className='card_img' src={download} />
-  <Button href="/Viewdetails"  variant="primary" className='btn'>View details</Button>
-  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
-</Card.Body>
-</Card>
-</li>
-<br />
-<li>
-<Card style={{ width: '80rem' }}>
-<Card.Body>
-  <Card.Title>Crop Title</Card.Title>
-  <Card.Img variant="right" src={download} />
-  <Button href="/Viewdetails" variant="primary" className='btn'>View details</Button>
-  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
-</Card.Body>
-</Card>
-</li>
-<br />
-<li>
-<Card style={{ width: '80rem' }}>
-<Card.Body>
-  <Card.Title>Crop Title</Card.Title>
-  <Card.Img variant="right"  src={toordal} />
-  <Button href="/Viewdetails" variant="primary" className='btn'>View details</Button>
-  <Button href="/Yourbids" variant="primary" className='card_btn'>Your bids</Button>
-</Card.Body>
-</Card>
-</li>
+
+<this.renderProducts></this.renderProducts>
 </ol>
     </div>
         )

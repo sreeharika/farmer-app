@@ -6,11 +6,9 @@ import axios from 'axios';
 
 class Login extends Component {
     state = {
-        mobilenum: '',
-        otp: '',
-        isLogged: false,
-        email:'',
-        password:''
+      email:'',
+      password:'',
+      isLogged: false,
       };
           
     handleChangeEmail = (event) => {
