@@ -21,15 +21,17 @@ export default class Farmerhome extends Component {
         }else{
           imgPath = `./${product.croptype.toString().replace(" ", "_").toLowerCase()}.png`
         }
-        
-        return <div>
-          <li>
+        let viewdetailsPath = `/Viewdetails/${product.id}`
+        console.log(product)
+        // debugger
+        return <div key={product.id}>
+          <li >
           <Card style={{ width: '80rem' }}>
           <Card.Body>
             <Card.Title>{product.croptype}</Card.Title>
             <Card.Img variant="right" className='card_img' src={imgPath} />
             <Button variant="primary" className='btn'>
-              <Link style={{color:'white'}} to="/Viewdetails"> View details</Link>
+              <Link style={{color:'white'}} to={viewdetailsPath}> View details</Link>
             </Button>
             <Button variant="primary" className='card_btn'>
               <Link style={{color:'white'}} to="/Yourbids"> Your bids</Link>

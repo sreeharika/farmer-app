@@ -105,12 +105,13 @@ export const loginUser = (email, password) => dispatch => {
   })
 };
 
-export const productinfo = (name,croptype) => dispatch => {
+export const productinfo = (product) => dispatch => {
   // dispatch(requestProduct());
   
   const infolist = {
-    "name": name,
-    "croptype": croptype,
+    "id": product.id,
+    "name": product.name,
+    "croptype": product.croptype,
     "weight": "weight",
     "price": "price",
     "selectlocation": "selectlocation",

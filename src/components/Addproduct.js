@@ -6,6 +6,7 @@ import { productinfo } from '../actions';
 import { connect } from "react-redux";
 // import {getStore} from "./configureStore";
 import store from "../configureStore";
+import { v4 as uuidv4 } from 'uuid';
 
 class Addproduct extends Component {
     state={
@@ -76,16 +77,21 @@ class Addproduct extends Component {
         // debugger
         event.preventDefault();
         const { dispatch } = this.props;
-        dispatch(productinfo(this.state.name, this.state.croptype));
+        let product = {
+          "id": uuidv4(),
+          "name": this.state.name,
+          "croptype": this.state.croptype
+        }
+        dispatch(productinfo(product));
         // this.onAction(this.state.name, this.state.croptype)
-        alert( `My name is ${this.state.name}.
-                My crop type is ${this.state.croptype}.
-                My weight is ${this.state.weight}.
-                My price  is ${this.state.price}.
-                My location type is ${this.state.selectlocation}.
-                My selectfile is ${this.state.selectedFile}.
-                My Bidend date is ${this.state.startDate}.
-              `);
+        // alert( `My name is ${this.state.name}.
+        //         My crop type is ${this.state.croptype}.
+        //         My weight is ${this.state.weight}.
+        //         My price  is ${this.state.price}.
+        //         My location type is ${this.state.selectlocation}.
+        //         My selectfile is ${this.state.selectedFile}.
+        //         My Bidend date is ${this.state.startDate}.
+        //       `);
         let storecp = store.getState()
         console.log(storecp.auth.products)
         // debugger

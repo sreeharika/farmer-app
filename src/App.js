@@ -47,7 +47,7 @@ function App(props) {
         <Route exact path="/Register" component={Register} />
         <Route exact path="/Farmerhome" component={Farmerhome} />
         <Route exact path="/Addproduct" component={Addproduct} />
-        <Route exact path="/Viewdetails" component={Viewdetails} />
+        <Route exact path="/Viewdetails/:id" component={Viewdetails} />
         <Route exact path="/Yourbids" component={Yourbids} />
       </div>
     </Router>
