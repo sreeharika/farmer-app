@@ -1,5 +1,6 @@
 import { myFirebase, firebaseConfig } from "../firebase/firebase";
 import axios from 'axios';
+import Addproduct from "../components/Addproduct";
 
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -11,6 +12,29 @@ export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
+
+export const PRODUCT_REQUEST = 'PRODUCT_REQUEST';
+export const ADD_PRODUCT = 'ADD_PRODUCT';
+export const PRODUCT_FAILURE = "PRODUCT_FAILURE";
+
+const requestProduct = () => {
+  return {
+    type: PRODUCT_REQUEST
+  }
+}
+
+const addProduct = infolist => {
+  return {
+    type: ADD_PRODUCT,
+    productinfo: infolist
+  }
+}
+
+const infolistError = () => {
+  return {
+    type: PRODUCT_FAILURE
+  }
+}
 
 const requestLogin = () => {
   return {
@@ -80,6 +104,21 @@ export const loginUser = (email, password) => dispatch => {
     dispatch(loginError());
   })
 };
+
+export const productinfo = (name,croptype) => dispatch => {
+  // dispatch(requestProduct());
+  
+  const infolist = {
+    "name": name,
+    "croptype": croptype,
+    "weight": "weight",
+    "price": "price",
+    "selectlocation": "selectlocation",
+    "files": "files",
+    "startDate": "startDate",
+  }
+  dispatch(addProduct(infolist));
+}
 
 export const logoutUser = () => dispatch => {
   dispatch(requestLogout());

@@ -6,7 +6,8 @@ import {
   LOGOUT_SUCCESS,
   LOGOUT_FAILURE,
   VERIFY_REQUEST,
-  VERIFY_SUCCESS
+  VERIFY_SUCCESS,
+  ADD_PRODUCT
 } from "../actions/";
 
 export default (
@@ -17,11 +18,19 @@ export default (
     loginError: false,
     logoutError: false,
     isAuthenticated: false,
-    user: {}
+    user: {},
+    products:[]
   },
   action
 ) => {
   switch (action.type) {
+    case ADD_PRODUCT:
+      console.log(action)
+      const updatedProducts = state.products.concat(action.productinfo);
+      // this.setState({ products: updatedProducts })
+      return {...state, products: updatedProducts}
+      
+      break;
     case LOGIN_REQUEST:
       return {
         ...state,

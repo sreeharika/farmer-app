@@ -41,12 +41,16 @@ function App(props) {
         isAuthenticated={isAuthenticated}
         isVerifying={isVerifying}
       />
-      <Route path="/login" component={Login} />
-      <Route exact path="/Register" component={Register} />
-      <Route exact path="/Farmerhome" component={Farmerhome} />
-      <Route exact path="/Addproduct" component={Addproduct} />
-      <Route exact path="/Viewdetails" component={Viewdetails} />
-      <Route exact path="/Yourbids" component={Yourbids} />
+    <Router>
+      <div>
+        <Route path="/login" component={Login} />
+        <Route exact path="/Register" component={Register} />
+        <Route exact path="/Farmerhome" component={Farmerhome} />
+        <Route exact path="/Addproduct" component={Addproduct} />
+        <Route exact path="/Viewdetails" component={Viewdetails} />
+        <Route exact path="/Yourbids" component={Yourbids} />
+      </div>
+    </Router>
     </Switch>
   );
 }
