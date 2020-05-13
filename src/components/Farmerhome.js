@@ -5,15 +5,14 @@ import { Link } from 'react-router-dom';
 // import { Router, Route, Link } from 'react-router'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Card, Button } from 'react-bootstrap';
-import download from './images/download.jpeg';
-import toordal from './images/toordal.jpg';
 import store from "../configureStore";
 
 export default class Farmerhome extends Component {
   renderProducts = ()=>{
     let storecp = store.getState()
     console.log(storecp.auth.products)
-    const listItems = storecp.auth.products.map((product) =>
+    if (storecp.auth.products.length > 0) {
+      const listItems = storecp.auth.products.map((product) =>
       {
         let imgPath
         if (!product.croptype) {
@@ -33,34 +32,34 @@ export default class Farmerhome extends Component {
             <Button variant="primary" className='btn'>
               <Link style={{color:'white'}} to={viewdetailsPath}> View details</Link>
             </Button>
-            <Button variant="primary" className='card_btn'>
-              <Link style={{color:'white'}} to="/Yourbids"> Your bids</Link>
-            </Button>
           </Card.Body>
           </Card>
           </li>
           <br />
         </div>
-        
       }
     );
-    return listItems
+    return listItems  
+    } else {
+      return "Please add products"
+    }
+
   }
     render() {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="#home">Farmer</Navbar.Brand>
+  <Navbar.Brand href="#home">FarmerBid App </Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link as={Link} to="#features">Home</Nav.Link>
+      <Nav.Link as={Link} to="Farmerhome">Products</Nav.Link>
       <Nav.Link href="#pricing">Bid History</Nav.Link>
       <Nav.Link as={Link} to="Addproduct">Add Product</Nav.Link>
       <NavDropdown title="Product categories" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Vegitables</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Fruits</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Pluses</NavDropdown.Item>
+        <NavDropdown.Item href="#">Vegitables</NavDropdown.Item>
+        <NavDropdown.Item href="#">Fruits</NavDropdown.Item>
+        <NavDropdown.Item href="#">Pluses</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     <Nav>

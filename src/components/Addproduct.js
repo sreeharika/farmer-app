@@ -80,7 +80,12 @@ class Addproduct extends Component {
         let product = {
           "id": uuidv4(),
           "name": this.state.name,
-          "croptype": this.state.croptype
+          "croptype": this.state.croptype,
+          "weight": this.state.weight,
+          "price": this.state.price,
+          "selectlocation": this.state.selectlocation,
+          "files": this.state.files,
+          "startDate": this.state.startDate,
         }
         dispatch(productinfo(product));
         // this.onAction(this.state.name, this.state.croptype)
