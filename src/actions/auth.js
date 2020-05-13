@@ -105,17 +105,18 @@ export const loginUser = (email, password) => dispatch => {
   })
 };
 
-export const productinfo = (name,croptype) => dispatch => {
+export const productinfo = (product) => dispatch => {
   // dispatch(requestProduct());
   
   const infolist = {
-    "name": name,
-    "croptype": croptype,
-    "weight": "weight",
-    "price": "price",
-    "selectlocation": "selectlocation",
-    "files": "files",
-    "startDate": "startDate",
+    "id": product.id,
+    "name": product.name,
+    "croptype": product.croptype,
+    "weight": product.weight,
+    "price": product.price,
+    "selectlocation": product.selectlocation,
+    "files": product.files,
+    "startDate": product.startDate,
   }
   dispatch(addProduct(infolist));
 }

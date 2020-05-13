@@ -49,3 +49,10 @@
   width: 20%;
   object-fit: cover;
 }
+
+.view {
+text-align: center;
+}
+.navbar {
+  width: 1320px;
+}
