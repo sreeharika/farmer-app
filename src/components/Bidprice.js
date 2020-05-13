@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Navigation from "./Navgation";
 
 export default class Bidprice extends React.Component {
     state = {
@@ -38,6 +39,7 @@ export default class Bidprice extends React.Component {
     const { fullname, email, phone, price } = this.state;
     return (
       <div style={{ backgroundColor: "light grey",textAlign:"center" }}>
+      <Navigation></Navigation>
         <form onSubmit={this.handlesubmit}>
           <div>
             <br></br>

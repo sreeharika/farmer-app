@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import store from "../configureStore";
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import Navigation from './Navgation';
 
 
 class Viewdetails extends Component {
@@ -25,6 +26,7 @@ class Viewdetails extends Component {
 
         return (
             <div className="view">
+            <Navigation></Navigation>
                 <h3>Viewdetails</h3>
                 <div>posted by:{product.name}</div>
                <div>croptype:{product.croptype}</div>

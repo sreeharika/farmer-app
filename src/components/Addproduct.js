@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 // import {getStore} from "./configureStore";
 import store from "../configureStore";
 import { v4 as uuidv4 } from 'uuid';
+import Navigation from './Navgation';
 
 class Addproduct extends Component {
     state={
@@ -114,6 +115,7 @@ class Addproduct extends Component {
         return (
           
             <div>
+            <Navigation></Navigation>
                 <h1>Add product descrption</h1>
                 <form onSubmit={this.handlesubmit}>
                 <label>
