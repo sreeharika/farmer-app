@@ -9,38 +9,56 @@ import Navigation from './Navgation';
 class Viewdetails extends Component {
     storecp = store.getState()
     productId 
+    product = []
+    prod={}
     constructor(props){
         super(props)
         this.productId = this.props.match.params.id
         console.log(this.props.match.params.id)
-    }
-    
-    render() {
-    
-        let product = this.storecp.auth.products.filter( (pd)=>{
+        
+        this.product = this.storecp.auth.products.filter( (pd)=>{
             if(pd.id === this.productId){
                 return pd
             }
         })
-        product = product[0]
+        if (this.product.length>0) {
+            this.prod = this.product[0]    
+        }
+    }
+    
+    productToRender = ()=>{
+        if (Object.keys(this.prod).length>0) {
+            return <div>
+                <Navigation></Navigation>
+                <h3>Viewdetails</h3>
+                <div>posted by:{this.prod.name}</div>
+                <div>croptype:{this.prod.croptype}</div>
+                <div>weight in kgs:{this.prod.weight}</div>
+                <div>price in rs:{this.prod.price}</div>
+                <div>location:{this.prod.selectlocation}</div>
+                <div>image:{this.prod.files}</div>
+                <div>Date:{this.prod.startDate.toDateString()}</div>
+                <Button variant="primary" className='card_btn'>
+                <Link style={{color:'white'}} to="/Bidprice"> Submit bid</Link>
+                </Button>
+            </div>
+        } else {
+            return <div>
+                Product not found
+            </div>
+        }
+    }
+
+    render() {
+
+        
 
         return (
             <div className="view">
-            <Navigation></Navigation>
-                <h3>Viewdetails</h3>
-                <div>posted by:{product.name}</div>
-               <div>croptype:{product.croptype}</div>
-               <div>weight in kgs:{product.weight}</div>
-               <div>price in rs:{product.price}</div>
-               <div>location:{product.selectlocation}</div>
-               <div>image:{product.files}</div>
-               <div>Date:{product.startDate.toDateString()}</div>
-               <Button variant="primary" className='card_btn'>
-               <Link style={{color:'white'}} to="/Bidprice"> Submit bid</Link>
-             </Button>
-             <p>
-        Back<Link to={"/Farmerhome"}>Here</Link>
-    </p>
+                <this.productToRender></this.productToRender>
+                <p>
+                    Back<Link to={"/Farmerhome"}>Here</Link>
+                </p>
             </div>
         )
         
