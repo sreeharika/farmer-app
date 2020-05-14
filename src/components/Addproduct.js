@@ -107,35 +107,32 @@ class Addproduct extends Component {
       };
 
     render()  {
-      console.log(this.state.selectfile);
       const redirectToReferrer = this.state.redirectToReferrer;
         if (redirectToReferrer === true) {
             return <Redirect to="/Farmerhome" />
         }
         return (
           
-            <div>
+            <div style={{textAlign:"center"}}>
             <Navigation></Navigation>
                 <h1>Add product descrption</h1>
                 <form onSubmit={this.handlesubmit}>
-                <label>
-              Name:
-              <br />
+                <label style={{paddingRight:"40px",color:"black"}}>Name:
               <input type="text" style={{
                 borderRadius: "5px",
+                paddingLeft: "25px",
                 width: "400px",
                 border: "1px solid #CED4DA",
               }}
               onChange={this.handleChangeName} />
             </label>
               <br />
-              <div style={{ paddingRight: "297px" }} />
+              <div style={{ paddingRight: "200px" }} />
               <label  style={{
                 color: "black",
-                paddingRight: "50px",
+                paddingRight: "260px",
               }}>
                 Crop type:
-                <br />
                 <select value={this.state.value} onChange={this.handleChangeCroptype}
                 style={{
                   backgroundColor: "#007BFF",
@@ -160,7 +157,6 @@ class Addproduct extends Component {
               </label>
               <br />
               <label> Weight: </label>
-              <br />
               <input
                 type="number"
                 placeholder= "weight in kgs/Tons"
@@ -176,7 +172,6 @@ class Addproduct extends Component {
                 color: "black",
                 paddingRight: "50px",
               }}> Price: </label>
-              <br />
               <input
                 type="number"
                 placeholder= "Price in Rs"
@@ -192,10 +187,9 @@ class Addproduct extends Component {
               <div style={{ paddingRight: "297px" }} />
               <label style={{
                 color: "black",
-                paddingRight: "50px",
+                paddingRight: "260px",
               }}>
                 Location:
-                <br />
                 <select value={this.state.value} onChange={this.handleChangeSelectlocation}
                 style={{
                   backgroundColor: "#007BFF",
@@ -222,9 +216,16 @@ class Addproduct extends Component {
               </label>
               <br />
               <br />
-              <label>Upload images:</label>
-              <br />
-              <input type='file' onChange={this.handleChangefiles} 
+              
+              <label>Bid End Date:</label>
+                    <DatePicker
+              selected={this.state.startDate}
+              onChange={this.handleChangeDate}
+            />
+                    <br />
+                    <br />
+                    <label>Upload images:</label>
+                    <input type='file' onChange={this.handleChangefiles} 
               style={{
                 color: "black",
                 paddingRight: "50px",
@@ -239,16 +240,7 @@ class Addproduct extends Component {
                 color: "white",
                 paddingLeft: "10px",
                 paddingRight: "25px",
-                border: "1px solid #CED4DA",
-              }}>Upload</button>
-                    <br />
-                    <br />
-                    <label>Bid End Date:</label>
-                    <br />
-                    <DatePicker
-              selected={this.state.startDate}
-              onChange={this.handleChangeDate}
-            />
+                border: "1px solid #CED4DA",}}>Upload</button>
             <br />
             <br />
               <input type="submit" value="Submit"
@@ -256,7 +248,7 @@ class Addproduct extends Component {
                 color: "white",
                 backgroundColor: "#007BFF",
                 borderRadius: "5px",
-                width: "510px",
+                width: "400px",
                 height: "35px",
                 border: "1px solid #CED4DA",
               }} />

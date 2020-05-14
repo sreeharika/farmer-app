@@ -38,7 +38,7 @@ class Login extends Component {
         return (
             <div className='loginpage'>
             
-            <h3>Farmer App</h3>
+            <h3 style={{textAlign:"center"}}>Login</h3>
             <div className="form-group">
                 <label>Email</label>
                 <input type="text" className="form-control" placeholder="Enter email" onChange={this.handleChangeEmail} />
