@@ -74,6 +74,7 @@ class Addproduct extends Component {
   // dispatch(productinfo(this.state.name, this.state.croptype));
   // }
 
+<<<<<<< HEAD
   handlesubmit = (event) => {
     // debugger
     event.preventDefault();
@@ -127,11 +128,27 @@ class Addproduct extends Component {
             <input
               type="text"
               style={{
+=======
+    render()  {
+      const redirectToReferrer = this.state.redirectToReferrer;
+        if (redirectToReferrer === true) {
+            return <Redirect to="/Farmerhome" />
+        }
+        return (
+          
+            <div style={{textAlign:"center"}}>
+            <Navigation></Navigation>
+                <h1>Add product descrption</h1>
+                <form onSubmit={this.handlesubmit}>
+                <label style={{paddingRight:"40px",color:"black"}}>Name:
+              <input type="text" style={{
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
                 borderRadius: "5px",
                 paddingLeft: "25px",
                 width: "400px",
                 border: "1px solid #CED4DA",
               }}
+<<<<<<< HEAD
               onChange={this.handleChangeName}
             />
           </label>
@@ -187,6 +204,110 @@ class Addproduct extends Component {
           <br />
           <div style={{ paddingRight: "40px" }}>
             <label
+=======
+              onChange={this.handleChangeName} />
+            </label>
+              <br />
+              <div style={{ paddingRight: "200px" }} />
+              <label  style={{
+                color: "black",
+                paddingRight: "260px",
+              }}>
+                Crop type:
+                <select value={this.state.value} onChange={this.handleChangeCroptype}
+                style={{
+                  backgroundColor: "#007BFF",
+                  borderRadius: "5px",
+                  width: "135px",
+                  height: "30px",
+                  color: "white",
+                  paddingLeft: "10px",
+                  paddingRight: "25px",
+                  border: "1px solid #CED4DA",
+                }}
+                >
+                  <option value="tamato">Tomato</option>
+                  <option value="chilli">Chilli</option>
+                  <option value="rice">Rice</option>
+                  <option value="wheat">Wheat</option>
+                  <option value="Mango">Mango</option>
+                  <option value="sapota">Sapota</option>
+                  <option value="Mosambi">Mosambi</option>
+                  <option value="Tur dal">Tur dal</option>
+                </select>
+              </label>
+              <br />
+              <label> Weight: </label>
+              <input
+                type="number"
+                placeholder= "weight in kgs/Tons"
+                onChange={this.handleChangeWeight}
+                style={{
+                  borderRadius: "5px",
+                  width: "400px",
+                  border: "1px solid #CED4DA",
+                }}
+              />{" "}
+              <br />
+              <label style={{
+                color: "black",
+                paddingRight: "50px",
+              }}> Price: </label>
+              <input
+                type="number"
+                placeholder= "Price in Rs"
+                onChange={this.handleChangePrice}
+                style={{
+                  borderRadius: "5px",
+                  width: "400px",
+                  border: "1px solid #CED4DA",
+                }}
+              />{" "}
+              <br />
+              <br />
+              <div style={{ paddingRight: "297px" }} />
+              <label style={{
+                color: "black",
+                paddingRight: "260px",
+              }}>
+                Location:
+                <select value={this.state.value} onChange={this.handleChangeSelectlocation}
+                style={{
+                  backgroundColor: "#007BFF",
+                  borderRadius: "5px",
+                  width: "135px",
+                  height: "30px",
+                  color: "white",
+                  paddingLeft: "10px",
+                  paddingRight: "25px",
+                  border: "1px solid #CED4DA",
+                }}>
+                  <option value="hyderabad">Hyderabad</option>
+                  <option value="adilabad">Adilabad</option>
+                  <option value="bhadradri">Bhadradri</option>
+                  <option value="jagtial">Jagtial</option>
+                  <option value="kamareddy">Kamareddy</option>
+                  <option value="karimnagar">Karimnagar</option>
+                  <option value="khammam">Khammam</option>
+                  <option value="medak">mMedak</option>
+                  <option value="nirmal">Nirmal</option>
+                  <option value="warangal">Warangal</option>
+                  
+                </select>
+              </label>
+              <br />
+              <br />
+              
+              <label>Bid End Date:</label>
+                    <DatePicker
+              selected={this.state.startDate}
+              onChange={this.handleChangeDate}
+            />
+                    <br />
+                    <br />
+                    <label>Upload images:</label>
+                    <input type='file' onChange={this.handleChangefiles} 
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
               style={{
                 color: "black",
               }}
@@ -225,6 +346,7 @@ class Addproduct extends Component {
                 color: "white",
                 paddingLeft: "10px",
                 paddingRight: "25px",
+<<<<<<< HEAD
                 border: "1px solid #CED4DA",
               }}
             >
@@ -266,13 +388,24 @@ class Addproduct extends Component {
             <button
               type="button"
               onClick={this.handleupload}
+=======
+                border: "1px solid #CED4DA",}}>Upload</button>
+            <br />
+            <br />
+              <input type="submit" value="Submit"
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
               style={{
                 backgroundColor: "#007BFF",
                 borderRadius: "5px",
+<<<<<<< HEAD
                 width: "102px",
                 height: "30px",
                 color: "white",
 
+=======
+                width: "400px",
+                height: "35px",
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
                 border: "1px solid #CED4DA",
               }}
             >

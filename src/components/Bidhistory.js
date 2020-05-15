@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import tomato from "./images/tomato.png";
 import { Card, Button } from "react-bootstrap";
+<<<<<<< HEAD
 import Navigation from "./Navgation";
+=======
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
 
 export default class Bidhistory extends React.Component {
   constructor(props) {
@@ -20,7 +23,10 @@ export default class Bidhistory extends React.Component {
   render() {
     return (
       <div style={{ textAlign: "center" }}>
+<<<<<<< HEAD
         <Navigation></Navigation>
+=======
+>>>>>>> 5f691d0a1f4d9dc6aafa5f98c4578d5803b95131
         <h4>Tomato details</h4>
         <Card.Img
           variant="right"
