@@ -1,58 +1,144 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding:0;
+  margin:0;
 }
+*:focus {
+    outline: none;
+} 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+body{
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
 }
-
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+#bg {
+  background:#56baed;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  clip-path: polygon(0 0, 55% 0, 45% 100%, 0% 100%);        
+}
+.underlineHover:after {
+  display: block;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.33s ease-in-out;
+}
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+.underlineHover:hover:after{
+  width: 100%;
+}
+.wrapper{
+  display:flex;
+  flex-direction:column;
   align-items: center;
+  text-align:center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
+  border-radius: 10px 10px 10px 10px;
+  min-height:100%;
+  #form{
+    max-width: 350px;
+    position: relative;
+    box-shadow: 2px 2px 3px darken(#cccccc, 10%);
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    position:relative;
 
-.App-link {
-  color: rgb(112, 76, 182);
-}
+    #formHeader{
+      h2 {
+        text-align: center;
+        font-size:15px;
+        font-weight:400px;
+        text-transform:uppercase;
+        color:#cccccc;
+        display:inline-block;
+        margin: 20px 10px 20px 10px;
+      }
+      h2.inactive {
+        color: #cccccc;
+      }
+      h2.active {
+        color: #0d0d0d;
+        border-bottom: 2px solid #56baed;
+      }
+       i {
+        font-size:4.5em;
+        margin:0px;
+        color:darken(#56baed, 10%);
+        text-shadow:0px 2px 3px darken(#56baed, 10%);
+      }
+    }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
+    #formContent{
+      padding: 20px 20px;
+      position: relative;
+      form input[type=submit]{
+        display:inline-block;
+        background-color: #56baed;
+        border: none;
+        color: white;
+        padding: 15px 70px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        border-radius: 5px;
+        box-shadow: 0 2px 2px 0px darken(#39ace7, 20%);
+        font-size: 13px;
+        margin-top:5px;
+      }
+      form input[type=text]{
+        background-color: #f6f6f6;
+        border: 2px solid #f6f6f6;
+        transition: all 0.5s ease-in-out;
+        padding: 15px 3px;
+        width:90%;
+        margin:5px;
+        border-radius:5px;
+        text-align:center;
+        background-color: #f6f6f6;
+        font-size: 16px;
+        display:inline-block;
+      }
+      form input[type=submit]:hover{
+        background-color: #39ace7;
+        border:none;
+      }
+      
+      input[type=text]:focus {
+        background-color: #fff;
+        border:none;
+        border-bottom: 2px solid #56baed;
+      }
+      input[type=text]:placeholder {
+        color: #cccccc;
+      }
+    }
+
+    #formFooter{
+      padding: 10px 20px;
+      background-color: #f6f6f6;
+      border-top: 1px solid darken(#f6f6f6, 5%);
+      border-radius:0px 0px 10px 10px;
+      a{
+        color:darken(#56baed, 35%);
+        padding: 10px 25px;
+        font-size:1em;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size:16px;
+      }
+    }
   }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
-}
-.loginpage {
-  margin: 100px 500px;
-}
-
-.btn {
-  margin-right: 10px;
-}
-
-.card-img-right {
-  width: 20%;
-  object-fit: cover;
-}
-
-.view {
-text-align: center;
-}
-.navbar {
-  width: 1320px;
 }
