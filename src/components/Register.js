@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class register extends Component {
   constructor(props) {
@@ -30,10 +31,13 @@ export default class register extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ textAlign: "center", paddingLeft: "400px" }}>
         <form onSubmit={this.handlesubmit}>
+          <br></br>
+          <h1>Register</h1>
+          <br></br>
           <label> fullname </label>
-          <br />
+          <br></br>
           <input
             type="text"
             name="fullname"
@@ -54,6 +58,12 @@ export default class register extends Component {
             name="email"
             value={this.state.email}
             onChange={this.handlechange}
+            style={{
+              // borderColor: "#0062CC",
+              borderRadius: "5px",
+              width: "400px",
+              border: "1px solid #CED4DA",
+            }}
           />{" "}
           <br />
           <label> Mobile </label>
@@ -63,38 +73,53 @@ export default class register extends Component {
             name="phone"
             value={this.state.phone}
             onChange={this.handlechange}
+            style={{
+              // borderColor: "#0062CC",
+              borderRadius: "5px",
+              width: "400px",
+              border: "1px solid #CED4DA",
+            }}
           />{" "}
           <br />
           <br />
-
-          <label>Pick type:
-            <select value={this.state.value} onChange={this.handleChange}
-            style={{
-              backgroundColor: "#007BFF",
-              borderRadius: "5px",
-              width: "135px",
-              height: "30px",
-              color: "white",
-              paddingLeft: "10px",
-              paddingRight: "25px",
-              border: "1px solid #CED4DA",
-            }}>
+          <label>
+            Pick type:
+            <select
+              value={this.state.value}
+              onChange={this.handleChange}
+              style={{
+                backgroundColor: "#007BFF",
+                borderRadius: "5px",
+                width: "135px",
+                height: "30px",
+                color: "white",
+                paddingLeft: "10px",
+                paddingRight: "25px",
+                border: "1px solid #CED4DA",
+              }}
+            >
               <option value="farmer">farmer</option>
               <option value="bidder">bidder</option>
             </select>
           </label>
           <br />
           <br />
-          <input type="submit" value="Submit"
-          style={{
-            color: "white",
-            backgroundColor: "#007BFF",
-            borderRadius: "5px",
-            width: "510px",
-            height: "35px",
-            border: "1px solid #CED4DA",
-          }} />
+          <input
+            type="submit"
+            value="Submit"
+            style={{
+              color: "white",
+              backgroundColor: "#007BFF",
+              borderRadius: "5px",
+              width: "510px",
+              height: "35px",
+              border: "1px solid #CED4DA",
+            }}
+          />
         </form>
+        <p className="back text-center">
+          Back<Link to={"/login"}>Here</Link>
+        </p>
       </div>
     );
   }

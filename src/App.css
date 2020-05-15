@@ -31,10 +31,10 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
 }
 .loginpage {
@@ -51,8 +51,8 @@
 }
 
 .view {
-text-align: center;
+  text-align: center;
 }
 .navbar {
-  width: 1320px;
+  width: 1461px;
 }

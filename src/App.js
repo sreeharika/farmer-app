@@ -8,7 +8,7 @@ import Farmerhome from './components/Farmerhome';
 import Home from './components/Home';
 import Addproduct from './components/Addproduct';
 import Viewdetails from './components/Viewdetails';
-import Yourbids from './components/Yourbids';
+import Bidhistory from './components/Bidhistory';
 import { connect } from "react-redux";
 import ProtectedRoute from './components/ProtectedRoute';
 import Bidprice from './components/Bidprice';
@@ -53,7 +53,7 @@ function App(props) {
         <Route exact path="/Farmerhome" component={Farmerhome} />
         <Route exact path="/Addproduct" component={Addproduct} />
         <Route exact path="/Viewdetails/:id" component={Viewdetails} />
-        <Route exact path="/Yourbids" component={Yourbids} />
+        <Route exact path="/Bidhistory" component={Bidhistory} />
         <Route exact path="/Bidprice" component={Bidprice} />
         </Navbar>
       </div>
